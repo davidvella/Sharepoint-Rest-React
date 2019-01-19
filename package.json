@@ -1,6 +1,6 @@
 {
   "name": "@davidvella/sharepoint-rest-react",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Work in Progress. This library extends the Office Fabric-UI React library, to help create Office 365 components in SharePoint 2013/Online (Classic) environments. ",
   "main": "lib/index.js",
   "scripts": {
