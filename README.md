@@ -1,20 +1,31 @@
 # Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+This library extends the [Office Fabric-UI React library](https://dev.office.com/fabric), to help create Office 365 components in SharePoint Online environments. For any examples please look at my [SharePoint Document Template Hub](https://https://github.com/davidvella/SharePoint-Template-Hub)
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+## Prerequisites
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+There are not many prerequisites required to build and run this project, but you'll need the following:
 
-# Contribute
-`npm test`
+```
+* Node.js 
+* Node Package Manager
+```
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://www.visualstudio.com/en-us/docs/git/create-a-readme). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+## Installation
+
+```bash
+$ npm install @davidvella/sharepoint-rest-react --save-dev
+```
+
+## Feedback
+
+* File a bug in [GitHub Issues](https://github.com/davidvella/sharepoint-rest-react/issues.
+
+## Authors
+
+* **David Vella** - *Initial work* - [davidvella](https://github.com/davidvella)
+
+See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details

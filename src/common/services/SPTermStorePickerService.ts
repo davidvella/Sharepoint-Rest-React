@@ -15,9 +15,13 @@ import { String } from 'typescript-string-operations';
  * Service implementation to manage term stores in SharePoint
  */
 export default class SPTermStorePickerService {
-  /**
-   * Gets the collection of term stores in the current SharePoint env
-   */
+
+    /**
+     * Gets the collection of term stores for the provided Web Url.
+     *
+     * @param webUrl The absolute Url to the SharePoint site.
+     * @returns Promise object represents the term store object.
+     */
 	public async getTermStores(webUrl: string): Promise<(ITermStoreData & ITermStore)[]> {
 		return new Promise<(ITermStoreData & ITermStore)[]>(async (resolve, reject) => {
 			const taxonomy = new Session(webUrl);
@@ -32,15 +36,19 @@ export default class SPTermStorePickerService {
 		});
 	}
 
-  /**
-   * Gets the current term set
-   */
-	public async getTermSet(webUrl: string, termSetNameOrID: string): Promise<ITermSetData & ITermSet> {
+    /**
+     * Gets the current term set
+     *
+     * @param webUrl The absolute Url to the SharePoint site.
+     * @param termSetID The Term Set ID
+     * @returns Promise object represents the the term set data.
+     */
+	public async getTermSet(webUrl: string, termSetID: string): Promise<ITermSetData & ITermSet> {
 		return new Promise<ITermSetData & ITermSet>(async (resolve, reject) => {
 			let termStores = await this.getTermStores(webUrl);
 			let termStore = termStores[0];
 			termStore
-				.getTermSetById(termSetNameOrID)
+				.getTermSetById(termSetID)
 				.get()
 				.then((res) => {
 					resolve(res);
@@ -53,7 +61,9 @@ export default class SPTermStorePickerService {
 
   /**
    * Retrieve all terms for the given term set
-   * @param termset
+   * @param webUrl The absolute Url to the SharePoint site.
+   * @param termSetID The Term Set ID
+   * @returns Promise object represents the the term set data.
    */
 	public async getAllTerms(webUrl: string, termSetNameOrID: string): Promise<(ITermData & ITerm)[]> {
 		return new Promise<(ITermData & ITerm)[]>(async (resolve, reject) => {
@@ -71,7 +81,9 @@ export default class SPTermStorePickerService {
 
   /**
    * Retrieve all terms that starts with the searchText
-   * @param searchText
+   * @param webUrl The absolute Url to the SharePoint site.
+   * @param searchText The search term that text is returned by.
+   * @returns Retrieve all terms for the given searchText
    */
 	public async searchTermsByName(webUrl: string, searchText: string): Promise<(ITermData & ITerm)[]> {
 		return new Promise<(ITermData & ITerm)[]>(async (resolve, reject) => {
@@ -95,16 +107,18 @@ export default class SPTermStorePickerService {
 
   /**
    * Searches terms for the given term set
-   * @param searchText
-   * @param termsetId
+   * @param webUrl The absolute Url to the SharePoint site.
+   * @param termSetID The Term Set ID
+   * @param searchText The search term that text is returned by.
+   * @returns Retrieve all terms for the given searchText in the Term Set ID.
    */
 	public async searchTermsByTermSet(
 		webUrl: string,
-		termSetNameOrID: string,
+		termSetID: string,
 		searchText: string
 	): Promise<(ITermData & ITerm)[]> {
 		return new Promise<(ITermData & ITerm)[]>(async (resolve, reject) => {
-			const terms = await this.getAllTerms(webUrl, termSetNameOrID);
+			const terms = await this.getAllTerms(webUrl, termSetID);
 			let returnTerms: (ITermData & ITerm)[] = [];
 			terms.forEach((term) => {
 				if (term.Name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1) {
