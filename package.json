@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha --reporter spec",
-    "build": "rm -rf ./lib/* && tsc && npm run copyFiles && node_modules/.bin/typedoc --mode modules --tsconfig tsconfig.json --out doc src",
+    "build": "rm -rf ./lib/* && tsc && npm run copyFiles && node_modules/.bin/typedoc --mode modules --tsconfig tsconfig.json --out docs src",
     "copyFiles": "copyfiles -u 1 src/**/*.scss src/**/*.png lib/"
   },
   "files": [
