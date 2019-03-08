@@ -1,7 +1,7 @@
 # Introduction 
 This library extends the [Office Fabric-UI React library](https://dev.office.com/fabric), to help create Office 365 components in SharePoint Online environments. For any examples please look at my [SharePoint Document Template Hub](https://github.com/davidvella/SharePoint-Template-Hub)
 
-Document can be found [here](https://davidvella.github.io/Sharepoint-Rest-React)
+Documentation can be found [here](https://davidvella.github.io/Sharepoint-Rest-React)
 
 ## Prerequisites
 
